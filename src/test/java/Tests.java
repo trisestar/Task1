@@ -1,12 +1,13 @@
 import com.meshkov.arraytask.entity.CustomArray;
 import com.meshkov.arraytask.parser.Parser;
 import com.meshkov.arraytask.reader.Reader;
+import com.meshkov.arraytask.reader.StreamReader;
 import com.meshkov.arraytask.service.impl.SortImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
-
+import java.awt.*;
 
 
 public class Tests {
@@ -63,4 +64,29 @@ public class Tests {
         }
 
     }
+
+
+    @Test
+    public void streamSortTest(){
+
+        CustomArray customArray = new CustomArray(5, -1 , 8 , 0, 4);
+        SortImpl sort = new SortImpl();
+        customArray = sort.streamSort(customArray);
+        for (int i : customArray.getArray()){
+            System.out.print(i + " ");
+        }
+
+    }
+
+
+    @Test
+    public void streamReader(){
+
+        String str = StreamReader.readFile("src\\main\\resources\\array.txt");
+
+        System.out.println(str);
+
+    }
+
+
 }

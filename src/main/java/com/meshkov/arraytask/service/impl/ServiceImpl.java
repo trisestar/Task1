@@ -3,6 +3,8 @@ package com.meshkov.arraytask.service.impl;
 import com.meshkov.arraytask.entity.CustomArray;
 import com.meshkov.arraytask.service.Service;
 
+import java.util.Arrays;
+
 public class ServiceImpl implements Service {
 
     public CustomArray allZerosToMinusOne(CustomArray input) {
@@ -85,4 +87,6 @@ public class ServiceImpl implements Service {
 
         return sum;
     }
+
+
 }

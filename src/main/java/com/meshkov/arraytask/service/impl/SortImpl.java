@@ -3,6 +3,12 @@ package com.meshkov.arraytask.service.impl;
 import com.meshkov.arraytask.entity.CustomArray;
 import com.meshkov.arraytask.service.Sort;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.IntStream;
+
 public class SortImpl implements Sort {
 
     private void swap(int[] array, int ind1, int ind2) {
@@ -61,4 +67,14 @@ public class SortImpl implements Sort {
         }
         return new CustomArray(array);
     }
+
+    public CustomArray streamSort(CustomArray input){
+
+        int[] array = input.getArray();
+        IntStream intStream = Arrays.stream(array);
+        array = intStream.sorted().toArray();
+        return new CustomArray(array);
+
+    }
+
 }
