@@ -4,6 +4,7 @@ import com.meshkov.arraytask.entity.CustomArray;
 import com.meshkov.arraytask.service.Service;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class ServiceImpl implements Service {
 
@@ -88,5 +89,38 @@ public class ServiceImpl implements Service {
         return sum;
     }
 
+    public int sumStream(CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return intStream.sum();
+    }
 
+    public double averageValueStream(CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return intStream.average().getAsDouble();
+    }
+
+    public int findMinStream (CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return intStream.min().getAsInt();
+    }
+
+    public int findMaxStream (CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return intStream.max().getAsInt();
+    }
+
+    public int findNumOfNegativeStream (CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return (int) intStream.filter(x -> x<0).count();
+    }
+
+    public int findNumOfPositiveStream (CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return (int) intStream.filter(x -> x>0).count();
+    }
+
+    public int[] zerosToMinusOneStream (CustomArray customArray){
+        IntStream intStream = Arrays.stream(customArray.getArray());
+        return intStream.map(x -> x == 0 ? x =-1 : x).toArray();
+    }
 }

@@ -10,5 +10,5 @@ public interface Sort {
 
     CustomArray shuttleSort(CustomArray input);
 
-
+     CustomArray streamSort(CustomArray input);
 }

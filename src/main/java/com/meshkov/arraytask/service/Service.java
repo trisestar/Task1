@@ -18,4 +18,17 @@ public interface Service {
 
     int sum(CustomArray input);
 
+    int sumStream(CustomArray customArray);
+
+    double averageValueStream(CustomArray customArray);
+
+    int findMinStream(CustomArray customArray);
+
+    int findMaxStream(CustomArray customArray);
+
+    int findNumOfNegativeStream(CustomArray customArray);
+
+    int findNumOfPositiveStream(CustomArray customArray);
+
+    int[] zerosToMinusOneStream(CustomArray customArray);
 }
