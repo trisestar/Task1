@@ -3,10 +3,7 @@ package com.meshkov.arraytask.service.impl;
 import com.meshkov.arraytask.entity.CustomArray;
 import com.meshkov.arraytask.service.Sort;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.stream.IntStream;
 
 public class SortImpl implements Sort {
@@ -17,8 +14,8 @@ public class SortImpl implements Sort {
         array[ind2] = tmp;
     }
 
-    public CustomArray bubbleSort(CustomArray input){
-        int[] array = input.getArray();
+    public CustomArray bubbleSort(CustomArray customArray){
+        int[] array = customArray.getArray();
         int n = array.length;
 
         for (int i = 0; i < n-1; i++) {
@@ -33,8 +30,8 @@ public class SortImpl implements Sort {
         return new CustomArray(array);
     }
 
-    public CustomArray insertionSort(CustomArray input){
-        int[] array = input.getArray();
+    public CustomArray insertionSort(CustomArray customArray){
+        int[] array = customArray.getArray();
         int n = array.length;
 
         for (int i = 1; i < n; ++i) {
@@ -49,8 +46,8 @@ public class SortImpl implements Sort {
         return new CustomArray(array);
     }
 
-    public CustomArray shuttleSort(CustomArray input){
-        int[] array = input.getArray();
+    public CustomArray shuttleSort(CustomArray customArray){
+        int[] array = customArray.getArray();
         int n = array.length;
 
         for (int i = 1; i < n; i++) {
@@ -68,9 +65,9 @@ public class SortImpl implements Sort {
         return new CustomArray(array);
     }
 
-    public CustomArray streamSort(CustomArray input){
+    public CustomArray streamSort(CustomArray customArray){
 
-        int[] array = input.getArray();
+        int[] array = customArray.getArray();
         IntStream intStream = Arrays.stream(array);
         array = intStream.sorted().toArray();
         return new CustomArray(array);

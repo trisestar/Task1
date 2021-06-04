@@ -18,32 +18,32 @@ public class Tests {
     @Test
     public void sortTest() {
         SortImpl sortImpl = new SortImpl();
-
         CustomArray array = new CustomArray(5, -1, 8, 0, 4);
 
-
         CustomArray result = sortImpl.bubbleSort(array);
-        System.out.println("bubbleSort");
-        for (int i : result.getArray()) {
-            System.out.print(i + " ");
+        logger.info("bubbleSort");
+        for (int elem : result.getArray()) {
+            logger.info(elem + " ");
         }
-        System.out.println();
+        logger.info("");
+
+
 
 
         result = sortImpl.shuttleSort(array);
-        System.out.println("shuttleSort");
-        for (int i : result.getArray()) {
-            System.out.print(i + " ");
+        logger.info("shuttleSort");
+        for (int elem : result.getArray()) {
+            logger.info(elem + " ");
         }
-        System.out.println();
+        logger.info("");
 
 
         result = sortImpl.insertionSort(array);
-        System.out.println("insertionSort");
-        for (int i : result.getArray()) {
-            System.out.print(i + " ");
+        logger.info("insertionSort");
+        for (int elem : result.getArray()) {
+            logger.info(elem + " ");
         }
-        System.out.println();
+        logger.info("");
 
     }
 
@@ -51,7 +51,7 @@ public class Tests {
     public void testFileRead() {
 
         String str = Reader.readFile("src\\main\\resources\\array.txt");
-        System.out.println(str);
+        logger.info(str);
     }
 
 
@@ -60,8 +60,8 @@ public class Tests {
 
         String str = Reader.readFile("src\\main\\resources\\array.txt");
         CustomArray customArray = Parser.findSuitableArray(str);
-        for (int i : customArray.getArray()) {
-            System.out.print(i + " ");
+        for (int elem : customArray.getArray()) {
+            logger.info(elem + " ");
         }
 
     }
@@ -73,8 +73,8 @@ public class Tests {
         CustomArray customArray = new CustomArray(5, -1, 8, 0, 4);
         SortImpl sort = new SortImpl();
         customArray = sort.streamSort(customArray);
-        for (int i : customArray.getArray()) {
-            System.out.print(i + " ");
+        for (int elem : customArray.getArray()) {
+            logger.info(elem + " ");
         }
 
     }
@@ -85,7 +85,7 @@ public class Tests {
 
         String str = StreamReader.readFile("src\\main\\resources\\array.txt");
 
-        System.out.println(str);
+        logger.info(str);
 
     }
 
@@ -94,16 +94,16 @@ public class Tests {
     public void arrToStrTest() {
 
         CustomArray customArray = new CustomArray(5, -1, 8, 0, 4);
-        String text = Arrays.toString(customArray.getArray());
-        System.out.println(text);
+        String result = Arrays.toString(customArray.getArray());
+        logger.info(result);
     }
 
     @Test
     public void sumStreamTest() {
         ServiceImpl service = new ServiceImpl();
         CustomArray customArray = new CustomArray(5, -1, 8, 0, 4);
-        String text = String.valueOf(service.sumStream(customArray));
-        System.out.println(text);
+        String result = String.valueOf(service.sumStream(customArray));
+        logger.info(result);
     }
 
     @Test
@@ -111,7 +111,7 @@ public class Tests {
         ServiceImpl service = new ServiceImpl();
         CustomArray customArray = new CustomArray(5, -1, 8, 0, 4);
         String result = String.valueOf(service.averageValueStream(customArray));
-        System.out.println(result);
+        logger.info(result);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class Tests {
         result += service.findMinStream(customArray);
         result += " ";
         result += service.findMaxStream(customArray);
-        System.out.println(result);
+        logger.info(result);
     }
 
     @Test
@@ -133,7 +133,7 @@ public class Tests {
         result += service.findNumOfNegativeStream(customArray);
         result += " ";
         result += service.findNumOfPositiveStream(customArray);
-        System.out.println(result);
+        logger.info(result);
     }
 
     @Test
@@ -141,12 +141,11 @@ public class Tests {
         ServiceImpl service = new ServiceImpl();
         CustomArray customArray = new CustomArray(5, -1, 8, 0, 4);
         String result = "";
-        for (int i : service.zerosToMinusOneStream(customArray)){
-            result+=i;
+        for (int elem : service.zerosToMinusOneStream(customArray)){
+            result+=elem;
             result+=" ";
         }
 
-
-        System.out.println(result);
+        logger.info(result);
     }
 }
