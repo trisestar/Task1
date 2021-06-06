@@ -6,19 +6,19 @@ public class CustomArray {
 
     private int[] array;
 
+    public CustomArray() {
+    }
+
     public CustomArray(int... arr) {
         this.array = arr;
     }
 
-    public CustomArray() {
-    }
-
     public int[] getArray() {
-        return array;
+        return Arrays.copyOf(array, array.length);
     }
 
     public void setArray(int... arr) {
-        this.array = arr;
+        this.array = Arrays.copyOf(arr, arr.length);
     }
 
     @Override

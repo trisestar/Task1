@@ -2,12 +2,15 @@ package com.meshkov.arraytask.parser;
 
 import com.meshkov.arraytask.entity.CustomArray;
 import com.meshkov.arraytask.exception.ParseIntException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
 
 public class Parser {
 
+    private static final Logger logger = LogManager.getLogger();
 
     public static CustomArray findSuitableArray(String str){
         ArrayList<Integer> list = new ArrayList<>();
@@ -23,21 +26,21 @@ public class Parser {
 
                 String[] splittedAgain = string.split(" ");
 
-                for (int i = 0; i < splittedAgain.length; i++) {
+                for (String s : splittedAgain) {
 
-                    //is it number
                     try {
-                        if (!splittedAgain[i].matches("[-+]?\\d+")) {
-                            throw new ParseIntException("String contains wrong symbols: " + splittedAgain[i]);
+                        if (!s.matches("[-+]?\\d+")) {
+                            throw new ParseIntException("String contains wrong symbols: " + s);
                         }
-                    } catch (ParseIntException e) {
-                        e.printStackTrace();
+                    } catch (ParseIntException exception) {
+                        exception.printStackTrace();
+                        logger.error(exception);
                         list.clear();
                         complited = false;
                         break;
                     }
 
-                    list.add(Integer.parseInt(splittedAgain[i]));
+                    list.add(Integer.parseInt(s));
                 }
 
             } else {
@@ -45,7 +48,6 @@ public class Parser {
             }
         }
 
-        //convert list to array
         int [] array = new int[list.size()];
         for (int i = 0; i< list.size();i++){
             array[i]=list.get(i);
